@@ -1,0 +1,69 @@
+CREATE TABLE User (
+    Username VARCHAR(20) PRIMARY KEY,
+    Password VARCHAR(20) NOT NULL,
+    Unique(Password)
+);
+INSERT INTO User VALUES ('Scott', 'scottisthebest3');
+INSERT INTO User VALUES ('clairbett', 'betty123')
+INSERT INTO User VALUES ('reubensach', 'sachy&me!')
+INSERT INTO User VALUES ('kkerrie', 'keriiscool#')
+INSERT INTO User VALUES ('RomanMarks', 'gojackets');
+INSERT INTO User VALUES ('TishaLily', 'lilylikeslilies');
+INSERT INTO User VALUES ('WildeCar', 'cars12390');
+INSERT INTO User VALUES ('AdamHarris', 'adamharris34');
+INSERT INTO User VALUES ('FreyaJim2', 'FreyaFlowers1');
+INSERT INTO User VALUES ('RachelThorne', 'rthorne3');
+INSERT INTO User VALUES ('HarrisonButker', 'hbutker3');
+INSERT INTO User VALUES ('SamanthaGrey', 'sgrey3');
+INSERT INTO User VALUES ('laurenkoster', 'lkosterpaige');
+INSERT INTO User VALUES ('JacobMarks', 'Cadenismyson!@');
+INSERT INTO User VALUES ('niceybauman', 'trackhurdler3');
+INSERT INTO User VALUES ('shannoninnis', 'shannybearisging43');
+INSERT INTO User VALUES ('baileyweiland', 'bcwbcw123');
+INSERT INTO User VALUES ('HannahScott1', 'hscott2');
+INSERT INTO User VALUES ('BrookeHarris', 'brookeisawesome123!!');
+INSERT INTO User VALUES ('seanmono3', 'taubeta2345');
+INSERT INTO User VALUES ('mattmerrick', 'matthew456');
+INSERT INTO User VALUES ('jacksmith', 'smitty1!');
+INSERT INTO User VALUES ('christianbowles','cbowles1');
+INSERT INTO User VALUES ('gabrieldarosa','gabe32');
+INSERT INTO User VALUES ('ctipler','longjump101');
+INSERT INTO User VALUES ('lindseywheel','irun800m');
+INSERT INTO User VALUES ('brendonthomas','tr8jk!');
+CREATE TABLE Manager (
+    Username VARCHAR(20) PRIMARY KEY,
+    FOREIGN KEY(Username) REFERENCES User(Username)
+);
+INSERT INTO Manager VALUES ('christianbowles');
+INSERT INTO Manager VALUES ('gabrieldarosa');
+INSERT INTO Manager VALUES ('ctipler');
+INSERT INTO Manager VALUES ('lindseywheel');
+INSERT INTO Manager VALUES ('brendonthomas');
+CREATE TABLE Station (
+    Location VARCHAR (50),
+    StationName VARCHAR(50),
+    PRIMARY KEY (Location, StationName)
+);
+
+INSERT INTO Station VALUES ('Atlanta', 'ATL');
+INSERT INTO Station VALUES ('Chicago', 'CHI');
+INSERT INTO Station VALUES ('Orlando', 'ORL');
+INSERT INTO Station VALUES ('New York', 'NYC');
+INSERT INTO Station VALUES ('Boston','BOS');
+INSERT INTO Station VALUES ('Washington D.C.', 'DCX');
+INSERT INTO Station VALUES ('Charlotte', 'CHA');
+INSERT INTO Station VALUES ('Charleston','CRL');
+INSERT INTO Station VALUES ('Nashville','NAS');
+
+CREATE TABLE Route (
+    RouteNum INT (5) AUTO_INCREMENT,
+	Location VARCHAR (50),
+    StationName VARCHAR(50),
+    ArrivalTime TIME,
+    DepartureTime TIME,
+    PRIMARY KEY (RouteNum),
+    FOREIGN KEY (Location, StationName) REFERENCES Station(Location,StationName)
+);
+INSERT INTO Route VALUES (1, 'Atlanta', 'Atlanta(ATL)', NULL, '06:30:00');
+INSERT INTO Route VALUES (2, 'Chicago', 'Chicago(CHI)', '12:45:00', '12:55:00');
+INSERT INTO Route VALUES (3, 'New York', 'New York(NYC)', '16:00:00', NULL);

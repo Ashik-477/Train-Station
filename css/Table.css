@@ -1,0 +1,34 @@
+table{
+  width: 640px;
+
+}
+th{
+  text-align: left;
+  background-color: #2B7DBC;
+  color: white;
+
+}
+
+table,th,td{
+border: 1px solid;
+border-collapse: collapse;
+border-color: #D5D5D5;
+
+
+}
+th,td {
+  padding: 10px;
+  text-align: center;
+}
+caption{
+  padding: 20px;
+  text-align: center;
+  color:#4979B5;
+
+}
+tr:nth-child(even){
+  background-color: white;
+}
+tr:nth-child(odd){
+  background-color: #ddd;
+}
